@@ -19,11 +19,13 @@ namespace Live_File_Organizer.Model
         {
             // Get Files Path
             string[] filesPath = Directory.GetFiles(Settings.SourcePath);
+            bool foundFileWithExtension;
 
             if (filesPath.Length > 0)
             {
                 foreach (string filePath in filesPath)
                 {
+                    foundFileWithExtension = false;
                     // Move Specific Files to Custum Path
                     if (Settings.File_Extension_And_Custom_DestPath.Count > 0)
                     {
@@ -32,12 +34,13 @@ namespace Live_File_Organizer.Model
                             if (Path.GetExtension(filePath).Contains(extensionAndPath[0]))
                             {
                                 MoveFilesToTarget(filePath, extensionAndPath[1], Path.GetFileName(filePath));
+                                foundFileWithExtension = true;
                                 break;
                             }
                         }
                     }
                     // Move Files to the Extension Folder
-                    else if (Settings.Sort_Folders_Into_Specific_Extension_Folders)
+                    if (Settings.Sort_Folders_Into_Specific_Extension_Folders && !foundFileWithExtension)
                     {
                         // Get Folder Name for File Extension
                         string destFolderPath = Path.GetExtension(filePath);
@@ -69,7 +72,7 @@ namespace Live_File_Organizer.Model
         {
             // 1s = 1000ms
             // 1m = 60s
-            return (Settings.Delay_In_Minutes * 60) * 1000; ;
+            return (Settings.Delay_In_Minutes * 60) * 1000;
         }
     }
 }

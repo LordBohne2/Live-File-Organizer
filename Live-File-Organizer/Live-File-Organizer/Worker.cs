@@ -18,7 +18,7 @@ namespace Live_File_Organizer
             {
                 Organizer organizer = new();
                 organizer.StartOrganizer();
-                //delay = organizer.GetMillisecondsFromMinutes();
+                delay = organizer.GetMillisecondsFromMinutes();
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(delay, stoppingToken);
             }
