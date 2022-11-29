@@ -1,3 +1,5 @@
+using Live_File_Organizer.Model;
+
 namespace Live_File_Organizer
 {
     public class Worker : BackgroundService
@@ -11,10 +13,14 @@ namespace Live_File_Organizer
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            int delay = 1000;
             while (!stoppingToken.IsCancellationRequested)
             {
+                Organizer organizer = new();
+                organizer.StartOrganizer();
+                //delay = organizer.GetMillisecondsFromMinutes();
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await Task.Delay(1000, stoppingToken);
+                await Task.Delay(delay, stoppingToken);
             }
         }
     }
