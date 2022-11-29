@@ -12,6 +12,7 @@ namespace Live_File_Organizer
         public List<List<string>> File_Extension_And_Custom_DestPath { get; set; }
         public int Delay_In_Minutes { get; set; }
         public bool Sort_Folders_Into_Specific_Extension_Folders { get; set; }
+        public string DestPath { get; set; }
 
         public SettingsJson()
         {

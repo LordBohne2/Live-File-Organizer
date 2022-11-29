@@ -46,7 +46,7 @@ namespace Live_File_Organizer.Model
                         string destFolderPath = Path.GetExtension(filePath);
                         destFolderPath = destFolderPath.Replace(".", "");
 
-                        string targetExtensionFolder = Settings.SourcePath + "\\" + destFolderPath;
+                        string targetExtensionFolder = Settings.DestPath + "\\" + destFolderPath;
 
                         MoveFilesToTarget(filePath, targetExtensionFolder, Path.GetFileName(filePath));
                     }

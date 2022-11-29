@@ -22,6 +22,7 @@ namespace Live_File_Organizer.Model
                 },
                 Delay_In_Minutes = 5,
                 Sort_Folders_Into_Specific_Extension_Folders = true,
+                DestPath = GetDownloadFolderPath()
             };
 
             // Json Serialize
