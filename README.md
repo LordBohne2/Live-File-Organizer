@@ -18,7 +18,8 @@ A settings.json file is created in the Settings folder located in the project fo
     ]
   ],
   "Delay_In_Minutes": 5,
-  "Sort_Folders_Into_Specific_Extension_Folders": true
+  "Sort_Folders_Into_Specific_Extension_Folders": true,
+  "DestPath": "Main Path"
 }
 ```
 - "File_Extension_And_Custom_DestPath" can be extended or empty (Disabled).
